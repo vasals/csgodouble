@@ -1,4 +1,15 @@
-// CSGODOUBLE BOT BY Richy
+// ==UserScript==
+// @name            CSGODOUBLE.COM
+// @version         2.0
+// @match           http://www.csgodouble.com/
+// @match           http://www.csgodouble.com/index.php
+// @match           http://csgodouble.com/
+// @match           http://csgodouble.com/index.php
+// @run-at          document-end
+// @grant           none
+// ==/UserScript==
+/* jshint -W097 */
+
 
 'use strict';
 
